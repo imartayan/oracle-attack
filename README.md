@@ -12,6 +12,13 @@
 ### Déchiffrer avec AES
 `openssl enc -d -aes-128-cbc -in enc.txt -iv 12345678901234567890123456789012 -K 23456789012345678901234567890123`
 
+## Utilisation d'AES directement dans Python
+
+On utilise le module `Crypto.Cipher.AES` de la librairie `pycrypto`.
+Pour l'installer, il suffit de faire `pip install pycrypto`.
+
+## Fonction d'AES-CBC
+
 ![Fonctionnement du chiffrement](cbc-enc.png)
 
 ![Fonctionnement du déchiffrement](cbc-dec.png)
