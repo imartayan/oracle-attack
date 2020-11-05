@@ -17,7 +17,7 @@
 On utilise le module `Crypto.Cipher.AES` de la librairie `pycrypto`.
 Pour l'installer, il suffit de faire `pip install pycrypto`.
 
-## Fonction d'AES-CBC
+## Fonctionnement d'AES-CBC
 
 ![Fonctionnement du chiffrement](cbc-enc.png)
 
