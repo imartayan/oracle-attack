@@ -1,2 +1,4 @@
-*.txt
+*.enc
+*.key
 *.pdf
+*.txt
