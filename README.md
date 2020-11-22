@@ -61,5 +61,5 @@ optional arguments:
 * [Article introductif](https://research.checkpoint.com/2019/cryptographic-attacks-a-guide-for-the-perplexed/)
 * [Article de Vaudenay](https://www.iacr.org/archive/eurocrypt2002/23320530/cbc02_e02d.pdf)
 * [Article de Bleichenbacher](http://archiv.infsec.ethz.ch/education/fs08/secsem/Bleichenbacher98.pdf)
-* [Documentation de PyCyptodome](https://pycryptodome.readthedocs.io/en/latest/src/api.html)
+* [Documentation de PyCryptodome](https://pycryptodome.readthedocs.io/en/latest/src/api.html)
 * [Wiki OpenSSL](https://wiki.openssl.org/index.php/Enc)
