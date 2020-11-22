@@ -1,24 +1,65 @@
-# Projet de Sécurité : Attaque par oracle sur AES
+# Attaque par oracle sur AES et RSA
 
-* [Page du projet](https://cmaurice.fr/teaching/ENS/project6.html)
-* [Article introductif](https://research.checkpoint.com/2019/cryptographic-attacks-a-guide-for-the-perplexed/)
-* [Wiki OpenSSL](https://wiki.openssl.org/index.php/Enc)
+Ce projet a été réalisé avec [Manon Sourisseau](https://github.com/ManonLittleMouse) dans le cadre du module de [sécurité](https://cmaurice.fr/teaching/ENS/) de l'[ENS Rennes](http://www.ens-rennes.fr/).
+Il est licencié selon les termes de la licence GPLv3.
 
-## Utilisation d'AES (via OpenSSL)
+## Prérequis
 
-### Chiffrer avec AES
-`openssl enc -e -aes-128-cbc -in msg.txt -out enc.txt -iv 12345678901234567890123456789012 -K 23456789012345678901234567890123`
+Ce projet nécessite une version récente de Python 3 (au moins 3.6) ainsi que la bibliothèque pycryptodome (`pip install pycryptodome`).
 
-### Déchiffrer avec AES
-`openssl enc -d -aes-128-cbc -in enc.txt -iv 12345678901234567890123456789012 -K 23456789012345678901234567890123`
+## Attaque de Vaudenay
 
-## Utilisation d'AES directement dans Python
+```
+usage: python3 vaudenay.py [-h] [-iv IV] [-k KEY] [-s SIZE] [-e] file
 
-On utilise le module `Crypto.Cipher.AES` de la librairie `pycrypto`.
-Pour l'installer, il suffit de faire `pip install pycrypto`.
+Python implementation of Vaudenay's oracle attack on AES-128-CBC
 
-## Fonctionnement d'AES-CBC
+positional arguments:
+  file                  file containing the (encrypted) message
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -iv IV                initialization vector
+  -k KEY, --key KEY     secret key used for encryption/decryption
+  -s SIZE, --size SIZE  AES block size in bits (128 by default)
+  -e, --encrypt         encrypt the message with iv and secret key
+```
+
+### Utiliser OpenSSL pour (dé)chiffrer avec AES
+
+#### Chiffrer un fichier
+`openssl enc -e -aes-128-cbc -in SOURCE_FILE -out ENCRYPTED_FILE -iv INITIALIZATION_VECTOR -K SECRET_KEY`
+
+#### Déchiffrer un fichier
+`openssl enc -d -aes-128-cbc -in ENCRYPTED_FILE -iv INITIALIZATION_VECTOR -K SECRET_KEY`
+
+### Fonctionnement d'AES-CBC
 
 ![Fonctionnement du chiffrement](cbc-enc.png)
 
 ![Fonctionnement du déchiffrement](cbc-dec.png)
+
+## Attaque de Bleichenbacher
+
+```
+usage: python3 bleichenbacher.py [-h] [-k KEY] [-e] file
+
+Python implementation of Bleichenbacher's oracle attack on RSA PKCS#1 v1.5
+
+positional arguments:
+  file               file containing the (encrypted) message
+
+optional arguments:
+  -h, --help         show this help message and exit
+  -k KEY, --key KEY  file containing the private key
+  -e, --encrypt      encrypt the message with private key
+```
+
+## Quelques liens
+
+* [Page du projet](https://cmaurice.fr/teaching/ENS/project6.html)
+* [Article introductif](https://research.checkpoint.com/2019/cryptographic-attacks-a-guide-for-the-perplexed/)
+* [Article de Vaudenay](https://www.iacr.org/archive/eurocrypt2002/23320530/cbc02_e02d.pdf)
+* [Article de Bleichenbacher](http://archiv.infsec.ethz.ch/education/fs08/secsem/Bleichenbacher98.pdf)
+* [Documentation de PyCyptodome](https://pycryptodome.readthedocs.io/en/latest/src/api.html)
+* [Wiki OpenSSL](https://wiki.openssl.org/index.php/Enc)
