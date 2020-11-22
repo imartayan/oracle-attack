@@ -5,9 +5,9 @@ Il est licencié selon les termes de la licence GPLv3.
 
 ## Prérequis
 
-Ce projet nécessite une version récente de Python 3 (au moins 3.6) ainsi que la bibliothèque pycryptodome (`pip install pycryptodome`).
+Ce projet nécessite une version récente de Python 3 (au moins 3.6) ainsi que la bibliothèque [PyCryptodome](https://pycryptodome.readthedocs.io/en/latest/src/api.html) (`pip install pycryptodome`).
 
-## Attaque de Vaudenay
+## Attaque de Vaudenay sur AES
 
 ```
 usage: python3 vaudenay.py [-h] [-iv IV] [-k KEY] [-s SIZE] [-e] file
@@ -33,13 +33,7 @@ optional arguments:
 #### Déchiffrer un fichier
 `openssl enc -d -aes-128-cbc -in ENCRYPTED_FILE -iv INITIALIZATION_VECTOR -K SECRET_KEY`
 
-### Fonctionnement d'AES-CBC
-
-![Fonctionnement du chiffrement](cbc-enc.png)
-
-![Fonctionnement du déchiffrement](cbc-dec.png)
-
-## Attaque de Bleichenbacher
+## Attaque de Bleichenbacher sur RSA
 
 ```
 usage: python3 bleichenbacher.py [-h] [-k KEY] [-e] file
