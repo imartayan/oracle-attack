@@ -1,4 +1,4 @@
-# Attaque par oracle sur AES et RSA
+# Attaques par oracle sur AES et RSA
 
 Ce projet a été réalisé avec [Manon Sourisseau](https://github.com/ManonLittleMouse) dans le cadre du module de [sécurité](https://cmaurice.fr/teaching/ENS/) de l'[ENS Rennes](http://www.ens-rennes.fr/).
 Il est licencié selon les termes de la licence GPLv3.
